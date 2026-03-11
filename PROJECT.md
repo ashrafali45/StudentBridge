@@ -6,6 +6,8 @@ StudentBridge is a web platform designed to help international students find par
 
 StudentBridge aims to bridge this gap by connecting international students with employers who are willing to hire student workers.
 
+<!-- So, this is specifically for Korea? Make sure to state that. -->
+
 ## Problem Statement
 
 International students often face difficulties finding part-time jobs because:
@@ -22,10 +24,12 @@ StudentBridge provides a centralized platform where international students can e
 
 The platform will simplify the job search process and improve accessibility for international students.
 
+<!-- As a hook, you might also want to offer language instruction specific to working. Also, what is the monetization strategy? -->
+
 ## Target Users
 
 * International students looking for part-time jobs
-* Employers seeking student workers
+* Employers seeking student workers <!-- So, you will need a Korean portal? As well as portals in different langauges for students from different countries? -->
 * University communities
 
 ## Key Features
@@ -58,13 +62,17 @@ Frontend:
 
 * Java
 
+<!-- Java is not a frontend language. Think more deeply about this. -->
+
 Backend:
 
 * Node.js / Python (to be decided)
 
 Database:
 
-* MySQL 
+* MySQL
+
+  <!-- Don't forget about deployment and hosting -->
 
 ## Future Improvements
 
