@@ -59,18 +59,19 @@ The platform will simplify the job search process and improve accessibility for 
 ## Technology Stack (Tentative)
 
 Frontend:
-
-* Java
-
-<!-- Java is not a frontend language. Think more deeply about this. -->
+- HTML
+- CSS
+- JavaScript
+- React (optional)
 
 Backend:
-
-* Node.js / Python (to be decided)
+- Node.js (Express)
 
 Database:
+- MySQL
 
-* MySQL
+Deployment:
+- Cloud hosting such as AWS, Vercel, or Render
 
   <!-- Don't forget about deployment and hosting -->
 
