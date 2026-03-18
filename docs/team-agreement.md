@@ -4,9 +4,9 @@
 
 * Mezbah Uddin
 * Sami Ul Alim
-* Md Ali Ashraf
+* Ali Mohammed Ashraf
 * Guramg Roman
-* Dipesh Chowlan
+* Dipesh Chaulagain
 
 ## Communication
 
