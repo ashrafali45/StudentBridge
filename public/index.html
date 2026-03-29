@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudentBridge</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="logo">🎓 StudentBridge</div>
+
+  <nav>
+    <a href="#">Find Jobs</a>
+  </nav>
+
+  <div class="auth">
+    <button class="login" onclick="openModal()">Log in</button>
+    <button class="signup" onclick="signup()">Sign up</button>
+  </div>
+</header>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button class="login" onclick="login()">Log in</button>
+    <button onclick="signup()">Sign Up</button>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="tag">#1 Job Platform for International Students</p>
+
+    <h1>
+      Bridge the gap to your <span>local career</span>
+    </h1>
+
+    <p class="desc">
+      Find part-time jobs, internships, and freelance opportunities.
+    </p>
+
+    <div class="search-box">
+      <input type="text" id="jobInput" placeholder="Job title">
+      <input type="text" id="cityInput" placeholder="City or region">
+      <button onclick="searchJobs()">Search</button>
+    </div>
+
+    <div class="popular">
+      <span>Popular:</span>
+      <button onclick="quickSearch('Part-time')">Part-time</button>
+      <button onclick="quickSearch('Internship')">Internships</button>
+    </div>
+  </div>
+</section>
+
+<!-- Jobs Section -->
+<section class="jobs-section">
+  <div class="jobs-header">
+    <h2>Latest Opportunities</h2>
+  </div>
+
+  <div id="jobs" class="jobs-container"></div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to take the next step?</h2>
+  <p>Join StudentBridge and start your journey today.</p>
+
+  <div class="cta-buttons">
+    <button class="primary">Join as Student</button>
+    <button class="secondary">Post a Job</button>
+  </div>
+</section>
+
+<script>
+/* ================= LOGIN SYSTEM ================= */
+
+function openModal() {
+  document.getElementById("loginModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("loginModal").style.display = "none";
+}
+
+function login() {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  if (email && password) {
+    alert("Login Successful!");
+    closeModal();
+  } else {
+    alert("Please enter email and password");
+  }
+}
+
+function signup() {
+  alert("Signup feature coming soon!");
+}
+
+/* ================= JOB DATA ================= */
+
+const jobs = [
+  { title: "Part-time Waiter", city: "Seoul" },
+  { title: "Cafe Assistant", city: "Busan" },
+  { title: "Intern Developer", city: "Incheon" },
+  { title: "Shop Helper", city: "Seoul" }
+];
+
+/* ================= DISPLAY JOBS ================= */
+
+function displayJobs(filteredJobs) {
+  const jobsContainer = document.getElementById("jobs");
+  jobsContainer.innerHTML = "";
+
+  if (filteredJobs.length === 0) {
+    jobsContainer.innerHTML = "<p>No jobs found</p>";
+    return;
+  }
+
+  filteredJobs.forEach(job => {
+    const jobCard = `
+      <div class="job-card">
+        <h3>${job.title}</h3>
+        <p>${job.city}</p>
+      </div>
+    `;
+    jobsContainer.innerHTML += jobCard;
+  });
+}
+
+/* ================= SEARCH FUNCTION ================= */
+
+function searchJobs() {
+  const jobInput = document.getElementById("jobInput").value.toLowerCase();
+  const cityInput = document.getElementById("cityInput").value.toLowerCase();
+
+  const filtered = jobs.filter(job =>
+    job.title.toLowerCase().includes(jobInput) &&
+    job.city.toLowerCase().includes(cityInput)
+  );
+
+  displayJobs(filtered);
+}
+
+/* ================= QUICK SEARCH ================= */
+
+function quickSearch(type) {
+  document.getElementById("jobInput").value = type;
+  searchJobs();
+}
+
+/* ================= LOAD DEFAULT ================= */
+
+window.onload = () => {
+  displayJobs(jobs);
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+
+<h1>Dashboard</h1>
+
+<h2>Post Job</h2>
+<input id="title" placeholder="Job Title">
+<input id="city" placeholder="City">
+<button onclick="postJob()">Post Job</button>
+
+<script>
+async function postJob() {
+  const title = document.getElementById("title").value;
+  const city = document.getElementById("city").value;
+
+  await fetch("http://localhost:5000/jobs", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ title, city })
+  });
+
+  alert("Job Posted!");
+}
+</script>
+
+</body>
+</html>
