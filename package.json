@@ -1,0 +1,11 @@
+{
+  "name": "studentbridge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
